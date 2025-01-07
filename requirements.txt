@@ -1,1 +1,5 @@
 Flask
+pytest 
+pytest-cov
+pipx
+tox
