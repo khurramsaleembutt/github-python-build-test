@@ -3,8 +3,29 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "my_package"
-version = "0.1.0"
-description = "A simple calculator package"
-authors = [{ name = "Khurram Saleem", email = "youremail@example.com" }]
-dependencies = []
+name = "my_package"                   # Project name
+version = "0.1.0"                     # Version
+description = "A simple pytho build and test package"
+authors = [{ name = "Khurram Saleem", email = "khurram703@example.com" }]
+license = "MIT"
+readme = "README.md"
+dependencies = []                     # Add any runtime dependencies here
+requires-python = ">=3.6"
+
+[tool.setuptools]
+packages = []                         # No packages (no __init__.py), so leave empty
+py-modules = ["math_operations", "tests"]  # Explicitly include standalone modules
+
+[tool.setuptools.package-data]
+# Include additional non-Python files
+# Use this for workflow files or other non-code files
+"my_package" = ["*.md"]
+
+[tool.setuptools.include]
+# Explicitly include additional files
+files = [
+    "math_operations.py",             # Your math_operations file
+    "tests.py",                       # Your test file
+    "README.md",                      # Your README file
+    ".github/workflows/*"             # Your GitHub workflow files
+]
